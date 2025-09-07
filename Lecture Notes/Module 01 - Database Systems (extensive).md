@@ -48,6 +48,9 @@ By the end of this chapter, you should be able to:
 - Reduced **data inconsistency**  
 - Faster **data access for decision-making**  
 - Increased **end-user productivity**  
+<img width="952" height="440" alt="image" src="https://github.com/user-attachments/assets/b264f6f7-7377-4d83-b919-3f0d4685e900" />
+Figure 1.4  The DBMS Manages the Interaction Between the End User and the Database
+
 
 **Class Activity:**  
 Imagine every university department kept its own file cabinets instead of sharing a database.  
