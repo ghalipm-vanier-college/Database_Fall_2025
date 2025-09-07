@@ -70,7 +70,7 @@ Imagine every university department kept its own file cabinets instead of sharin
 - **General-purpose**: Multiple uses (e.g., MS Access for projects).  
 - **Discipline-specific**: Narrow focus (e.g., PubMed for medical research).  
 - **Operational**: Supports daily transactions.  
-- **Analytical**: Stores historical data for reporting and BI (databases + OLAP).  
+- **Analytical**: Stores historical data for reporting and BI (databases + OLAP: Online Analytical Processing)
 
 ### By Data Structure
 - **Structured**: Organized in tables (e.g., SQL databases).  
@@ -86,6 +86,8 @@ Traditional file systems cause challenges:
 - **Data dependence**: Physical storage details must be known by programs.  
 - **Data redundancy**: Duplicated data leads to inconsistencies and errors (so-called *“islands of information”*).  
 - **Data anomalies**: Inconsistent updates or deletions cause system errors.  
+<img width="914" height="706" alt="image" src="https://github.com/user-attachments/assets/c3f7f84e-05df-43bc-b4b0-a9c3e8442acc" />
+Figure 1.9  Contrasting Database and File Systems
 
 **Mini-Exercise:**  
 - If a student changes their major, how would storing this data in separate departmental spreadsheets cause redundancy or anomalies?  
@@ -100,7 +102,9 @@ A complete database system consists of:
 4. **Procedures**: Rules for use and management.  
 5. **Data**: Raw facts and metadata.  
 
-(Show diagram of Database System Environment here.)  
+<img width="945" height="611" alt="image" src="https://github.com/user-attachments/assets/a8781f8a-13dc-4d19-a698-bf9e799d9a27" />
+Figure 1.10  The Database System Environment
+
 
 ---
 
