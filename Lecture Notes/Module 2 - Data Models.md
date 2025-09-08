@@ -45,7 +45,6 @@ The finance manager and developer may each view customer data differently—data
 Data models bridge communication gaps among stakeholders, provide blueprints before implementation, and reduce design risks by capturing perspectives and expectations ahead of development.
 
 ### Real-world Case Study
-**Case Study:**  
 At a hospital, administrators, doctors, and IT technicians have different points of view regarding patient data. A well-designed data model accommodates medical histories, appointment records, and lab results, ensuring everyone’s requirements are met for smooth, error-free care delivery.
 
 ---
@@ -68,7 +67,6 @@ At a hospital, administrators, doctors, and IT technicians have different points
 Entities, attributes, relationships, and constraints are the foundational components that structure data and govern how it is stored, linked, and validated.
 
 ### Real-world Case Study
-**Case Study:**  
 A university enrollment system treats "Student," "Course," and "Enrollment" as entities. Relationships (students enrolling in courses) and constraints (students cannot enroll in courses with time conflicts) maintain both structure and integrity.
 
 ---
@@ -91,7 +89,7 @@ Each classroom must have only one teacher, an employee’s salary must be within
 Constraints safeguard data integrity by imposing rules that validate data entries and relationships, preventing inappropriate or inconsistent data storage.
 
 ### Real-world Case Study
-**Case Study:**  
+
 In a payroll database, constraints ensure that no employee is assigned a salary below the government minimum wage. If an entry doesn’t meet the criteria, the system rejects it—helping the company comply with regulations and avoid errors.
 
 ---
@@ -137,7 +135,7 @@ Interview a department manager—what business rules define how they manage data
 Business rules reflect organizational policies, shaping entities, relationships, and constraints in the data model—directly impacting how information is structured, stored, and processed.
 
 ### Real-world Case Study
-**Case Study:**  
+
 A gym’s membership system uses business rules such as “A member may book many classes, but a class can only be booked by members with active subscriptions.” These rules clarify relationships in the model and automate eligibility checks.
 
 ---
@@ -153,7 +151,6 @@ A gym’s membership system uses business rules such as “A member may book man
 Consistent naming conventions improve clarity, maintenance, and teamwork in database projects, ensuring components are easily understood and referenced.
 
 ### Real-world Case Study
-**Case Study:**  
 An airline reservation system uses prefixes such as FLT_ (flight), CNF_ (confirmation) to label attributes (e.g., FLT_NUMBER), making the database easier to navigate for developers and analysts.
 
 ---
@@ -252,7 +249,7 @@ Figure 2.4  A Comparison of the OO, UML, and ER Models
 Data models have evolved from hierarchical and network systems to the relational and object-oriented paradigms. Recent innovations enable scalability, flexibility, and support specialized needs like graph structures for social networks and time series for IoT data.
 
 ### Real-world Case Study
-**Case Study:**  
+ 
 A bank uses relational databases for transaction records but leverages graph databases to detect fraudulent patterns in money transfers by mapping relationships. For IoT-enabled ATMs, it adopts time series models to monitor machine health data in real time.
 
 ---
@@ -400,7 +397,7 @@ Draw a diagram showing these four abstraction levels for a university database.
 NoSQL databases offer scalability and flexibility for handling diverse, high-volume data. Data abstraction layers—from external to physical models—help tailor data views and optimize performance for different users and processes.
 
 ### Real-world Case Study
-**Case Study:**  
+ 
 A ride-sharing service uses NoSQL document stores for user profiles, graph databases for ride matchmaking, and abstraction layers to provide drivers, passengers, and dispatchers with custom interfaces suited to their roles.
 
 ---
@@ -436,7 +433,7 @@ A ride-sharing service uses NoSQL document stores for user profiles, graph datab
 Effective data modeling relies on clear communication, well-defined rules, and suitable model choices to address contemporary needs in evolving environments, making database management robust and adaptable.
 
 ### Real-world Case Study
-**Case Study:**  
+ 
 An online education platform regularly revises its data models when adding new features like video streaming or peer discussions. By starting each enhancement with a solid data model, the platform avoids costly rework and supports seamless integration of new technologies.
 
 ---
