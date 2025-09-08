@@ -21,6 +21,11 @@ By the end of this chapter, you should be able to:
 - **Data model**: A simple, conceptual representation of real-world objects and relationships.
   - Helps database designers capture complexity and reduce errors.
 
+- **Section Summary**
+  - Data modeling creates conceptual representations of real-world objects and their associations, providing a roadmap for effective database design and reducing complexity and errors.
+- **Real-world Case Study**
+  - When designing a customer relationship management (CRM) system for a retail company, data modeling helps identify critical entities such as customers, orders, and products. This ensures that relationships between purchases and customer profiles are clearly defined, allowing accurate tracking and personalized communication.
+
 **Prompt:**  
 Imagine designing a database for an online bookstore. What information (entities, relationships) would you start modeling?
 
@@ -36,6 +41,13 @@ Imagine designing a database for an online bookstore. What information (entities
 **Example:**  
 The finance manager and developer may each view customer data differently—data models create a common language.
 
+### Section Summary
+Data models bridge communication gaps among stakeholders, provide blueprints before implementation, and reduce design risks by capturing perspectives and expectations ahead of development.
+
+### Real-world Case Study
+**Case Study:**  
+At a hospital, administrators, doctors, and IT technicians have different points of view regarding patient data. A well-designed data model accommodates medical histories, appointment records, and lab results, ensuring everyone’s requirements are met for smooth, error-free care delivery.
+
 ---
 
 ## 2.4 Basic Building Blocks
@@ -50,6 +62,17 @@ The finance manager and developer may each view customer data differently—data
 - **Many-to-many (M:N):** Students register for many classes; classes have many students.
 - **One-to-one (1:1):** One person, one passport.
 
+---
+
+### Section Summary
+Entities, attributes, relationships, and constraints are the foundational components that structure data and govern how it is stored, linked, and validated.
+
+### Real-world Case Study
+**Case Study:**  
+A university enrollment system treats "Student," "Course," and "Enrollment" as entities. Relationships (students enrolling in courses) and constraints (students cannot enroll in courses with time conflicts) maintain both structure and integrity.
+
+---
+
 **Prompt:**  
 List entities and their relationships for a college registration system.
 
@@ -62,6 +85,14 @@ List entities and their relationships for a college registration system.
 
 **Example:**  
 Each classroom must have only one teacher, an employee’s salary must be within defined limits.
+
+---
+### Section Summary
+Constraints safeguard data integrity by imposing rules that validate data entries and relationships, preventing inappropriate or inconsistent data storage.
+
+### Real-world Case Study
+**Case Study:**  
+In a payroll database, constraints ensure that no employee is assigned a salary below the government minimum wage. If an entry doesn’t meet the criteria, the system rejects it—helping the company comply with regulations and avoid errors.
 
 ---
 
@@ -101,11 +132,29 @@ Interview a department manager—what business rules define how they manage data
 
 ---
 
+## 2.7–2.9 Business Rules & Translating to Models
+### Section Summary
+Business rules reflect organizational policies, shaping entities, relationships, and constraints in the data model—directly impacting how information is structured, stored, and processed.
+
+### Real-world Case Study
+**Case Study:**  
+A gym’s membership system uses business rules such as “A member may book many classes, but a class can only be booked by members with active subscriptions.” These rules clarify relationships in the model and automate eligibility checks.
+
+---
+
 ## 2.10 Naming Conventions
 
 - Use clear, descriptive names for entities and attributes.
 - Prefix attributes with entity names for clarity (e.g., CUS_CREDIT_LIMIT).
 - Good conventions make models easier to read and maintain.
+  
+---
+### Section Summary
+Consistent naming conventions improve clarity, maintenance, and teamwork in database projects, ensuring components are easily understood and referenced.
+
+### Real-world Case Study
+**Case Study:**  
+An airline reservation system uses prefixes such as FLT_ (flight), CNF_ (confirmation) to label attributes (e.g., FLT_NUMBER), making the database easier to navigate for developers and analysts.
 
 ---
 
@@ -130,12 +179,8 @@ Interview a department manager—what business rules define how they manage data
      - **User Interface (UI)**
     The UI enables users to interact with the database via graphical apps, command-line tools, or APIs to query and manage data.
     
-    
-    
      - **Database Tables**
-    Data is stored in structured, relational tables with rows and columns, designed for easy access and manipulation.
-    
-    
+    Data is stored in structured, relational tables with rows and columns, designed for easy access and manipulation.   
     
      - **SQL Engine**
     The SQL engine processes queries, executes operations (e.g., retrieve, insert, update, delete), and ensures data integrity.
@@ -200,6 +245,15 @@ Draw an ERD for a simple library database (books, authors, borrowers).
 
 Figure 2.4  A Comparison of the OO, UML, and ER Models
 
+---
+
+## 2.11–2.14 Data Model Evolution and Modern Models
+### Section Summary
+Data models have evolved from hierarchical and network systems to the relational and object-oriented paradigms. Recent innovations enable scalability, flexibility, and support specialized needs like graph structures for social networks and time series for IoT data.
+
+### Real-world Case Study
+**Case Study:**  
+A bank uses relational databases for transaction records but leverages graph databases to detect fraudulent patterns in money transfers by mapping relationships. For IoT-enabled ATMs, it adopts time series models to monitor machine health data in real time.
 
 ---
 
@@ -341,6 +395,16 @@ Draw a diagram showing these four abstraction levels for a university database.
 
 ---
 
+## 2.15–2.17 NoSQL and Data Abstraction
+### Section Summary
+NoSQL databases offer scalability and flexibility for handling diverse, high-volume data. Data abstraction layers—from external to physical models—help tailor data views and optimize performance for different users and processes.
+
+### Real-world Case Study
+**Case Study:**  
+A ride-sharing service uses NoSQL document stores for user profiles, graph databases for ride matchmaking, and abstraction layers to provide drivers, passengers, and dispatchers with custom interfaces suited to their roles.
+
+---
+
 ## 2.18 Knowledge Checks
 
 - **Q:** What does “logical independence” mean?  
@@ -365,5 +429,14 @@ Draw a diagram showing these four abstraction levels for a university database.
 - Why does starting with a good data model make building databases easier?
 - Where could business rules help avoid data errors in a school, hospital, or business?
 - Which data abstraction level seems most important—and why?
+
+---
+## 2.19–2.20 Summary & Discussion
+### Section Summary
+Effective data modeling relies on clear communication, well-defined rules, and suitable model choices to address contemporary needs in evolving environments, making database management robust and adaptable.
+
+### Real-world Case Study
+**Case Study:**  
+An online education platform regularly revises its data models when adding new features like video streaming or peer discussions. By starting each enhancement with a solid data model, the platform avoids costly rework and supports seamless integration of new technologies.
 
 ---
