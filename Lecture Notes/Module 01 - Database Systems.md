@@ -19,8 +19,8 @@ By the end of this chapter, you should be able to:
 - Good decision-making requires **accurate, relevant, and timely information**.  
 
 **Example:**  
-- Data: A list of student test scores → `[75, 89, 92, 68]`  
-- Information: The class average is 81.  
+- Data:  → `[75, 89, 92, 68]`  
+- Information: This is a list of student test scores. The class average is 81.  
 - Knowledge: The class performed above expectations compared to last year.  
 
 **Think About:** What "raw facts" from your daily routine can become useful information with context?  
