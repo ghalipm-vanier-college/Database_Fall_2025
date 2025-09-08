@@ -126,6 +126,31 @@ Interview a department manager—what business rules define how they manage data
 - Uses powerful RDBMS software to manage tables.
 - SQL provides access and manipulation.
 
+* Any SQL-based relational database application involves the following three parts:
+     - **User Interface (UI)**
+    The UI enables users to interact with the database via graphical apps, command-line tools, or APIs to query and manage data.
+    
+    
+    
+     - **Database Tables**
+    Data is stored in structured, relational tables with rows and columns, designed for easy access and manipulation.
+    
+    
+    
+     - **SQL Engine**
+    The SQL engine processes queries, executes operations (e.g., retrieve, insert, update, delete), and ensures data integrity.
+
+<img width="1148" height="478" alt="image" src="https://github.com/user-attachments/assets/8ab273f9-70f6-4ae0-add6-ecbaad53378e" />
+
+Figure 2.1  Linking Relational Tables
+
+
+<img width="450" height="350" alt="image" src="https://github.com/user-attachments/assets/d384cb6d-c070-4a7d-a077-e7da997c7bab" />
+
+Figure 2.2  A Relational Diagram
+
+
+
 **Prompt:**  
 Compare tables in Excel to database tables. How are they similar, and how are they different?
 
@@ -133,9 +158,21 @@ Compare tables in Excel to database tables. How are they similar, and how are th
 
 ## 2.13 Entity Relationship Model (ERM)
 
-- Visual tool: **Entity Relationship Diagram (ERD).**
-- Common notations: Chen, Crow’s Foot, UML class diagrams.
-- Shows entities (boxes), attributes, and relationships.
+* Conceptual Simplicity
+  * Complex database design requires clear, simple concepts to achieve successful outcomes.
+
+* Graphical Tools for Design
+  * Database designers use graphical tools to visually represent entities and their relationships.
+
+* **Entity Relationship Model (ERM)**
+  * The ERM provides a framework for modeling database entities and relationships.
+  * Foundation of Relational Design
+  * The ERM and relational data model together form the basis for structured database design.
+
+* Visual tool: **Entity Relationship Diagram (ERD).**
+  * An ERD uses graphical symbols to represent database components, entities, and their relationships.
+  * Common notations: **Chen, Crow’s Foot, UML class diagrams**.
+  * Shows entities (boxes), attributes, and relationships.
 
 **Activity:**  
 Draw an ERD for a simple library database (books, authors, borrowers).
