@@ -140,12 +140,12 @@ Interview a department manager—what business rules define how they manage data
      - **SQL Engine**
     The SQL engine processes queries, executes operations (e.g., retrieve, insert, update, delete), and ensures data integrity.
 
-<img width="1148" height="478" alt="image" src="https://github.com/user-attachments/assets/8ab273f9-70f6-4ae0-add6-ecbaad53378e" />
+<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/8ab273f9-70f6-4ae0-add6-ecbaad53378e" />
 
 Figure 2.1  Linking Relational Tables
 
 
-<img width="450" height="350" alt="image" src="https://github.com/user-attachments/assets/d384cb6d-c070-4a7d-a077-e7da997c7bab" />
+<img width="450" height="250" alt="image" src="https://github.com/user-attachments/assets/d384cb6d-c070-4a7d-a077-e7da997c7bab" />
 
 Figure 2.2  A Relational Diagram
 
@@ -177,7 +177,7 @@ Compare tables in Excel to database tables. How are they similar, and how are th
 <br>
 
 
-<img width="925" height="480" alt="image" src="https://github.com/user-attachments/assets/bb34e1a3-bde0-46a3-95ef-7a8eb16f988f" />
+<img width="750" height="480" alt="image" src="https://github.com/user-attachments/assets/bb34e1a3-bde0-46a3-95ef-7a8eb16f988f" />
 
 <br>
 
@@ -196,7 +196,7 @@ Draw an ERD for a simple library database (books, authors, borrowers).
 
 <br>
 
-<img width="1124" height="405" alt="image" src="https://github.com/user-attachments/assets/c84dffdd-1ac2-421f-a990-ca35736275ea" />
+<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/c84dffdd-1ac2-421f-a990-ca35736275ea" />
 
 Figure 2.4  A Comparison of the OO, UML, and ER Models
 
