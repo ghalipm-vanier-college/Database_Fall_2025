@@ -171,8 +171,16 @@ Compare tables in Excel to database tables. How are they similar, and how are th
 
 * Visual tool: **Entity Relationship Diagram (ERD).**
   * An ERD uses graphical symbols to represent database components, entities, and their relationships.
-  * Common notations: **Chen, Crow’s Foot, UML class diagrams**.
+  * Common notations: **Chen, Crow’s Foot, UML(the Unified Modeling Language) class diagrams**.
   * Shows entities (boxes), attributes, and relationships.
+
+<br>
+
+
+<img width="925" height="480" alt="image" src="https://github.com/user-attachments/assets/bb34e1a3-bde0-46a3-95ef-7a8eb16f988f" />
+
+<br>
+
 
 **Activity:**  
 Draw an ERD for a simple library database (books, authors, borrowers).
@@ -186,6 +194,13 @@ Draw an ERD for a simple library database (books, authors, borrowers).
 - **O/R DBMS:** Combines relational and object features.
 - **XML:** Standard for storing and exchanging structured, semi-structured, and unstructured data.
 
+<br>
+
+<img width="1124" height="405" alt="image" src="https://github.com/user-attachments/assets/c84dffdd-1ac2-421f-a990-ca35736275ea" />
+
+Figure 2.4  A Comparison of the OO, UML, and ER Models
+
+
 ---
 
 ## 2.15 Emerging Data Models - Big Data & NoSQL
@@ -193,6 +208,91 @@ Draw an ERD for a simple library database (books, authors, borrowers).
 - **IoT**: Many devices creating huge amounts of data.
 - **Big Data:** Focus on Volume, Velocity, Variety (**3 Vs**).
 - **Hadoop, NoSQL:** Tools for distributed, scalable storage and analytics.
+
+<h3>The Evolution of Data Models 🕰️</h3>
+<div _ngcontent-ng-c267990210="" not-end-of-paragraph="" class="table-content not-end-of-paragraph" 
+  jslog="275421;track:impression,attention" data-hveid="0" decode-data-ved="1" 
+  data-ved="0CAAQ3ecQahgKEwikrp25mb-PAxUAAAAAHQAAAAAQogI">
+  <table>
+    <thead>
+      <tr><td>Year(s)</td>
+        <td>Data Model</td>
+        <td>Semantics in Data Model</td>
+        <td>Comments</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>1960</b></td>
+        <td>Hierarchical</td>
+        <td>Least</td>
+        <td>- Difficult to represent M:N relationships (hierarchical only) 
+          <br> - Structural level dependency
+          <br> - No ad hoc queries (record-at-a-time access)
+          <br> - Access path predefined (navigational access)
+        </td>
+      </tr>
+      <tr><td><b>1969</b></td><td>Network</td><td></td><td></td></tr>
+      <tr><td><b>1970</b></td><td>Relational</td><td></td>
+        <td> <br>- Conceptual simplicity (structural independence) <br>- Provides ad hoc queries (SQL) <br>- Set-oriented access</td>
+      </tr>
+      <tr><td><b>1976</b></td><td>Entity Relationship</td><td></td><td><br>- Easy to understand (more semantics)<br>- Limited to conceptual modeling (no implementation component)</td></tr>
+      <tr><td><b>1978</b></td><td>Semantic</td><td></td><td><br>- More semantics in data model<br>- Support for complex objects<br>- Inheritance (class hierarchy)</td></tr>
+      <tr><td><b>1985</b></td><td>Object-Oriented</td><td></td><td>- Behavior<br>- Unstructured data (XML)<br>- XML data exchanges</td></tr>
+      <tr><td><b>1990</b></td><td>Extended Relational (O/R DBMS)</td><td></td><td></td></tr>
+      <tr>
+        <td><b>2009</b></td><td>Big Data - NoSQL</td><td>Most</td><td> - Addresses Big Data problem<br> - Less semantics in data model<br>- Based on schema-less key-value data stores<br>- Best suited for large sparse data stores</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Post-2009 Evolution 🚀</h3> 
+  
+* Since 2009, the evolution has accelerated, driven by the rise of `big data`, `AI`, and the need for specialized data models.
+
+<br>
+
+<table>
+  <head>
+    <tr><td>Year(s)</td>
+        <td>Data Model</td>
+        <td>Comments</td>
+        <td>Use Case</td>
+      </tr>
+  </head>
+  <tbody>
+    <tr><td><b>2010s</b></td>
+        <td>Graph</td>
+        <td> - Explicitly models relationships between entities. <br> -  Ideal for highly interconnected data. <br> -  Utilizes nodes, edges, and properties.</td>
+        <td> - Social networks, <br> - fraud detection, <br> - recommendation engines.</td>
+      </tr>
+
+   <tr><td><b>2010s</b> </td>
+        <td>Time Series</td>
+        <td> - Optimized for data points indexed by time. <br> - Handles high write and read throughput for time-stamped data.</td>
+        <td> - IoT sensor data, <br> - stock market analysis, <br> - application monitoring.</td>
+      </tr>
+      
+   <tr><td><b>2010s</b></td>
+        <td>Document Store</td>
+        <td> - Stores data in flexible, <br> - Semi-structured documents (e.g., JSON, XML). <br> - Easy to scale horizontally.</td>
+        <td> - Content management, <br> - user profiles, <br> - catalogs.</td>
+      </tr>    
+
+   <tr><td><b>2020s</b></td>
+        <td>Vector</td>
+        <td><br>  - Represents data as high-dimensional vectors. <br> - Optimized for similarity searches and machine learning.</td>
+        <td> - AI applications, <br>  - Image recognition, <br> - Natural language processing (NLP).</td>
+      </tr>
+   <tr><td><b>Today</b></td>
+        <td>Multi-model</td>
+        <td><br>  - Combines multiple data models into a single database system. <br>  - Offers flexibility without needing to integrate multiple technologies.</td>
+        <td><br>  - Complex applications requiring relational, document, graph, and vector capabilities simultaneously.</td>
+      </tr>
+    
+  </tbody>
+</table>
+
 
 **Prompt:**  
 Why can't traditional relational databases handle all IoT data efficiently?
@@ -210,10 +310,31 @@ Why can't traditional relational databases handle all IoT data efficiently?
 
 ## 2.17 Degrees of Data Abstraction
 
-- **External Model:** End user's view—specific to units in the organization.
-- **Conceptual Model:** Global view—covers the whole organization.
-- **Internal Model:** As seen by the DBMS—software dependent.
+- **External Model:** End user's view—`specific to units` in the organization.
+
+<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/457b2964-14c1-4427-86c7-7690d6c44086" />
+Figure 2.7  External Models for Tiny College
+
+<br>
+  
+- **Conceptual Model/Schema**
+  - ** Global view—covers `the whole organization`.
+
+- <img width="650" height="450" alt="image" src="https://github.com/user-attachments/assets/fc978b94-283a-485b-b409-e028700c4e52" />
+- Figure 2.8  Conceptual Model for Tiny College
+<br>
+
+
+- **Internal Model/Schema**: As seen by the DBMS—software dependent.
+- <img width="845" height="693" alt="image" src="https://github.com/user-attachments/assets/3379f43e-cb5a-474e-9861-2a50ff9d591b" />
+<br>
 - **Physical Model:** How data is stored physically—hardware & software dependent.
+
+<br>
+
+<img width="650" height="450" alt="image" src="https://github.com/user-attachments/assets/e1f38572-91c7-4914-99c6-77b3471b75e4" />
+
+<br>
 
 **Prompt:**  
 Draw a diagram showing these four abstraction levels for a university database.
