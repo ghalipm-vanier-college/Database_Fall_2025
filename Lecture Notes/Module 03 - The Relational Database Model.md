@@ -62,6 +62,7 @@ Examine a spreadsheet—what features does it share with a relational table?
 - **Secondary Key:** Used for data retrieval, not as a relational determinant.
 
 <img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/52fa1ff9-98ac-4901-9b84-69c171ec385a" />
+
 Figure 3.2  An Example of a Simple Relational Database
 
 
