@@ -86,7 +86,9 @@ Why can’t a primary key ever be null? Give examples from real-world systems.
 | Entity Integrity      | PK entries are unique and cannot be null                   | No invoice can have duplicate or missing numbers |
 | Referential Integrity | FK must be null or match a valid PK in the related table  | Customer's sales rep must exist             |
 
-<img width="750" height="450" alt="image" src="https://github.com/user-attachments/assets/fefa25eb-7d33-4793-8239-78b4461f4103" />
+<img width="650" height="400" alt="image" src="https://github.com/user-attachments/assets/fefa25eb-7d33-4793-8239-78b4461f4103" />
+
+Figure 3.3  An Illustration of Integrity Rules
 
 
 ### Section Summary  
@@ -202,10 +204,21 @@ Think of a case where having duplicate data in a database would be helpful.
 ---
 
 ## 3.12 Indexes
+- An index in SQL is a database object designed to improve the speed of data retrieval operations on a table or view.
+- It functions similarly to an index in a book, providing a quick way to locate specific data without having to scan the entire table.
+
+- Creating an Index:
+Indexes are created using the CREATE INDEX statement.
+
+```sql
+CREATE INDEX index_name
+ON table_name (column1, column2, ...);
+```
 - An **index** organizes data for fast retrieval.
 - **Index key:** The attribute value used to locate data quickly.
 - **Unique Index:** Points to only one record.
 - Tables can have multiple indexes, each relating to a single table.
+
 
 ### Section Summary  
 Indexes improve performance by reducing search times at the cost of additional storage and maintenance effort.
@@ -226,7 +239,7 @@ Indexes improve performance by reducing search times at the cost of additional s
 |--------------|--------------------------------|
 | Information  | Data stored only as values in tables |
 | Guaranteed Access | Every value accessible by table, PK, and column name |
-| (Rules continue up to rule 13) |                        |
+|                   |                        |
 
 ### Section Summary  
 Dr. Codd’s rules provide a foundational framework ensuring relational databases behave predictably, reliably, and universally.
@@ -252,3 +265,4 @@ Dr. Codd’s rules provide a foundational framework ensuring relational database
 Which relational database feature do you think is most important for accurate, effective data management—and why?
 
 ---
+`ACID (Atomicity, Consistency, Isolation, Durability) compliance` which ensures data remains accurate, complete, and reliable
