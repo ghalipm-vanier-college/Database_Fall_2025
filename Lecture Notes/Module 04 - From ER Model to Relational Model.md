@@ -1,5 +1,8 @@
 # From Entity-Relationship Model to Relational Model  
 
+### Crows Foot Symbol Summary
+<img width="882" height="469" alt="image" src="https://github.com/user-attachments/assets/78423d6d-6781-4f79-8ea0-d807071b2401" />
+
 ---
 ## Database Design Process
 
