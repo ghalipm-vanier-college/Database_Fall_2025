@@ -1,11 +1,14 @@
 # From Entity-Relationship Model to Relational Model  
 
 ---
+## Database Design Process
 
-## Database Design Process  
+<table>
+<tr>
+<td width="60%" valign="top">
 
 ### Requirements Collection and Analysis  
-Database designers gather and understand the data requirements of database users.
+Database designers gather and understand the data requirements of database users.  
 
 ### Conceptual Design  
 - Create a conceptual schema that describes data requirements in detail.  
@@ -20,28 +23,63 @@ Database designers gather and understand the data requirements of database users
 - Implement logical model considering DBMS and physical factors for optimal performance.  
 - Create SQL statements for tables, views, procedures, and data insertion.  
 
-<img width="414" height="649" alt="image" src="https://github.com/user-attachments/assets/63072a18-bbd0-49c3-8268-59a56254c909" />
+</td>
+<td width="40%" valign="top">
+<br>
+<img width="414" height="549" alt="image" src="https://github.com/user-attachments/assets/63072a18-bbd0-49c3-8268-59a56254c909" />
 
+</td>
+</tr>
+</table>
 
 ---
 
-## Phase 2: Logical Design  
+## Logical Design  
 
-- Input: E-R diagrams  
-- Output: Relational schemas  
-- Mapping E-R diagrams to relations follows a well-defined process:  
-  - Each entity set → new table  
-  - Each attribute → new table column  
-  - Each relationship set → new columns or new table  
+* During the logical design phase, you transform the conceptual design into relational database
+schemas
+
+* The input to this process is the ER diagrams, and the output is the relational schemas
+
+* Mapping the ER diagrams to relations is a relatively straightforward process with a well defined set
+of rules
+
+<table>
+<tr>
+<td width="50%" valign="top">
+ <b>Input: E-R diagrams  
+  
+ Output: Relational schemas  
+ </b>
+ * `ER diagrams` are a `high-level abstraction`,
+ * `Relational schemas` provide a lower-level, more `detailed view of the database structure`
+   
+  - Mapping E-R diagrams to relations follows a well-defined process:  
+    - Each entity set → new table  
+    - Each attribute → new table column  
+    - Each relationship set → new columns or new table  
+</td>
+<td width="50%" valign="top">
+<br>
+<img width="699" height="531" alt="image" src="https://github.com/user-attachments/assets/bff79d38-a174-410b-a42c-34a7282427c4" />
+</td>
+</tr>
+</table>
 
 ---
 
 ## Step 1: Mapping of Regular Entity Types  
+* A `Strong Entity` is a type of entity that `has a key Attribute` that can `uniquely identify` each instance of the entity. A Strong Entity does not depend on any other Entity in the Schema for its identification.
+* A `Weak Entity` cannot be uniquely identified by its own attributes alone. It `depends on a strong entity to be identified`. A weak entity is associated with an identifying entity (strong entity), which helps in its identification. A weak entity are represented by a double rectangle.
 
+<img width="650" height="166" alt="image" src="https://github.com/user-attachments/assets/9a9fd344-32c3-4d56-885f-bc97522ca9be" />
+
+  
 - For each strong entity:  
   - Create a relation(table) named same as entity.  
-  - Map simple attributes to relation attributes.  
-  - For composite attributes, map simple component attributes.  
+  - Map simple attributes to relation attributes.
+  - <img width="606" height="154" alt="image" src="https://github.com/user-attachments/assets/0c46ac0a-8611-4eff-842a-e1ffc98d0710" />
+  - For `composite attributes`(attribute with attributes), map simple component attributes.  
   - Exclude derived attributes.  
   - Choose key attribute(s) as primary key.  
   - Composite keys if key is composite.
@@ -51,7 +89,9 @@ Database designers gather and understand the data requirements of database users
 ### Example: CUSTOMER Entity  
 - Composite attribute: customer-address (street, city, state, zip)  
 - Map to multiple simple attributes: street, city, state, zip  
+- <img width="899" height="141" alt="image" src="https://github.com/user-attachments/assets/3817d197-1c39-461b-ab1a-f53eafe7d08c" />
 
+    <img width="480" height="380" alt="image" src="https://github.com/user-attachments/assets/aeaf2aed-b0a8-4970-b32d-b48f1278f916" />
 ---
 
 ## Multi-valued Attributes  
@@ -70,7 +110,8 @@ employee-id, employee-name, employee-address
 **EMPLOYEE-SKILL Table:**  
 employee-id, skill  
 
-- Suggest adding new attributes like years-experience or certification-date.
+- <img width="748" height="192" alt="image" src="https://github.com/user-attachments/assets/e42578fc-5668-4ea8-8056-4f791ec77fe2" />
+
 
 ---
 
@@ -88,6 +129,9 @@ PAINTER_NUM (PK), PAINTER_LNAME, PAINTER_FNAME, PAINTER_INITIAL
 
 **PAINTING Table:**  
 PAINTING_NUM (PK), PAINTING_TITLE, PAINTER_NUM (FK)  
+
+<img width="939" height="393" alt="image" src="https://github.com/user-attachments/assets/262b0906-dcfb-4e34-840e-635ce4a39e45" />
+
 
 ---
 
@@ -110,7 +154,9 @@ EMP_NUM (PK), DEPT_CODE (FK), PROF_OFFICE, PROF_EXTENSION, PROF_HIGH_DEGREE
 DEPT_CODE (PK), DEPT_NAME, SCHOOL_CODE, EMP_NUM (FK), DEPT_ADDRESS, DEPT_EXTENSION  
 
 - 1:M DEPARTMENT employs PROFESSOR relationship implemented by DEPT_CODE FK in PROFESSOR.  
-- 1:1 PROFESSOR chairs DEPARTMENT implemented by EMP_NUM FK in DEPARTMENT.  
+- 1:1 PROFESSOR chairs DEPARTMENT implemented by EMP_NUM FK in DEPARTMENT.
+- <img width="924" height="440" alt="image" src="https://github.com/user-attachments/assets/062b45b2-7185-4f5b-89fe-1212e79f30a2" />
+
 
 ---
 
@@ -120,6 +166,11 @@ DEPT_CODE (PK), DEPT_NAME, SCHOOL_CODE, EMP_NUM (FK), DEPT_ADDRESS, DEPT_EXTENSI
 - Include as foreign keys the primary keys of related tables.  
 - Combination of foreign keys form primary key of new relation.  
 - Add any simple attributes of the relationship as attributes of the new relation.
+- <img width="518" height="207" alt="image" src="https://github.com/user-attachments/assets/e6af65c1-4cef-451d-b6d6-18564a1d31e6" />
+
+<img width="928" height="425" alt="image" src="https://github.com/user-attachments/assets/05220608-a251-4a7d-9e63-f9e302e05b93" />
+
+
 
 ---
 
@@ -144,6 +195,9 @@ CLASS_CODE (PK, FK), STU_NUM (PK, FK), ENROLL_GRADE
 ---
 
 ### Example: EMPLOYEE_V2  
+
+<img width="725" height="293" alt="image" src="https://github.com/user-attachments/assets/ea7f782c-f7f9-4ff8-aa75-8c9d02b990c0" />
+
 
 EMP_CODE (PK), EMP_LNAME, EMP_MANAGER (FK referencing EMP_CODE)  
 
@@ -176,6 +230,8 @@ dependent-name (partial key), employee-id (FK), DOB, gender
 |----------------|-------------|-----------|--------|
 | ...            | ...         | ...       | ...    |
 
+<img width="956" height="296" alt="image" src="https://github.com/user-attachments/assets/dbdfcfc6-d346-43cd-b1e5-3b8c26eac8dd" />
+
 ---
 
 ## College Logical Schema Example   
@@ -197,6 +253,7 @@ dependent-name (partial key), employee-id (FK), DOB, gender
 
 - **STUDENT**  
   STUD_NUM (PK), F_NAME, LNAME, DOB  
+<img width="739" height="410" alt="image" src="https://github.com/user-attachments/assets/5256bc94-d945-410c-bb89-cf93c9f547ac" />
 
 ---
 
@@ -207,6 +264,7 @@ dependent-name (partial key), employee-id (FK), DOB, gender
 - PROFESSOR teaches COURSE  
 - COURSE offered by DEPARTMENT  
 - STUDENT enrolls in COURSE (M:N)
+<img width="559" height="404" alt="image" src="https://github.com/user-attachments/assets/c12c7ed7-c9fb-4b52-a0b7-da7ce70ca10f" />
 
 ---
 
