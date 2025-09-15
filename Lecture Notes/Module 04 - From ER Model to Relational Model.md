@@ -1,6 +1,4 @@
 # From Entity-Relationship Model to Relational Model  
-Lecture 4  
-Nagat Drawel  
 
 ---
 
@@ -21,6 +19,9 @@ Database designers gather and understand the data requirements of database users
 ### Physical Design  
 - Implement logical model considering DBMS and physical factors for optimal performance.  
 - Create SQL statements for tables, views, procedures, and data insertion.  
+
+<img width="414" height="649" alt="image" src="https://github.com/user-attachments/assets/63072a18-bbd0-49c3-8268-59a56254c909" />
+
 
 ---
 
