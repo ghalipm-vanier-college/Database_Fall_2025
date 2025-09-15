@@ -261,6 +261,10 @@ Dr. Codd’s rules provide a foundational framework ensuring relational database
 - Data dictionary and system catalog document and support the database design.
 - Indexing and Dr. Codd’s rules guide efficient, consistent database management.
 
+### Crows Foot Symbol Summary
+<img width="882" height="469" alt="image" src="https://github.com/user-attachments/assets/78423d6d-6781-4f79-8ea0-d807071b2401" />
+
+
 ### Final Prompt  
 Which relational database feature do you think is most important for accurate, effective data management—and why?
 
