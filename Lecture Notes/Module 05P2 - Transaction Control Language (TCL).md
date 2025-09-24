@@ -106,17 +106,17 @@ BEGIN TRANSACTION;
 
 -- Step 1: Insert a new customer and create a savepoint
 INSERT INTO CUSTOMER VALUES (8, 'Nina', 'Young', 'nina@example.com', 'Chicago', '60615');
-SAVEPOINT add_customer;
+SAVE TRAN add_customer;
 
 -- Step 2: Insert new order for Nina and create another savepoint
 INSERT INTO ORDERS VALUES (110, 8, '2025-12-22', 2700.00, 'PENDING');
-SAVEPOINT add_order;
+SAVE TRAN add_order;
 
 -- Step 3: Suppose you realize the order should be PAID, not PENDING
 UPDATE ORDERS SET status = 'PAID' WHERE order_id = 110;
 
 -- Step 4: Unexpected error occurs, so rollback to add_order (undo status update)
-ROLLBACK TO add_order;
+ROLLBACK TRAN TO add_order;
 
 -- Step 5: Commit all changes so far (customer added, order with PENDING status created)
 COMMIT;
@@ -132,10 +132,11 @@ COMMIT;
 ### Summary Table
 
 | Command    | Purpose                       | Typical Use Case                              |
-|------------|------------------------------|-----------------------------------------------|
-| COMMIT     | Save all work in transaction | After successful DML operations               |
-| ROLLBACK   | Undo current transaction     | If errors or unwanted changes occur           |
-| SAVEPOINT  | Set rollback marker          | To allow partial undos inside a transaction   |
+|------------       |------------------------------|-----------------------------------------------|
+| COMMIT            | Save all work in transaction | After successful DML operations               |
+| ROLLBACK (TRAN)   | Undo current transaction     | If errors or unwanted changes occur           |
+| SAVEPOINT         | Set rollback marker          | To allow partial undos inside a transaction   |
+|(SAVE TRAN)        | SQL SERVER  SPECIFIC         |                                               |
 
 ---
 
