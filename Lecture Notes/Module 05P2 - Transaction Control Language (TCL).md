@@ -116,7 +116,7 @@ SAVE TRAN add_order;
 UPDATE ORDERS SET status = 'PAID' WHERE order_id = 110;
 
 -- Step 4: Unexpected error occurs, so rollback to add_order (undo status update)
-ROLLBACK TRAN TO add_order;
+ROLLBACK TRAN add_order;
 
 -- Step 5: Commit all changes so far (customer added, order with PENDING status created)
 COMMIT;
@@ -144,12 +144,12 @@ COMMIT;
 
 - TCL commands only affect changes made by DML statements.
 - Changes are **not permanent** until you use `COMMIT`.
-- `ROLLBACK` undoes *all* uncommitted changes or up to a savepoint.
-- `SAVEPOINT` makes advanced rollback possible within a transaction.
+- `ROLLBACK TRAN` undoes *all* uncommitted changes or up to a savepoint.
+- `SAVEPOINT`(SAVE TRAN) makes advanced rollback possible within a transaction.
 
 - **BEGIN TRANSACTION** starts the transaction session.
-- **SAVEPOINT** marks points you can roll back to.
-- **ROLLBACK TO add_order** undoes only changes after that savepoint (restores order status to 'PENDING').
+- **SAVEPOINT(SAVE TRAN)** marks points you can roll back to.
+- **ROLLBACK (TO) add_order** undoes only changes after that savepoint (restores order status to 'PENDING').
 - **COMMIT** saves all changes since the transaction started.
 
 
