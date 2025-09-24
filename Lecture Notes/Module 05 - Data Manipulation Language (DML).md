@@ -146,3 +146,45 @@ Note:
 
 * If a parent row is referenced by a child table’s foreign key, it cannot be deleted (error occurs).
 * To allow deletion: define the foreign key with ON DELETE CASCADE (delete child rows too) or ON DELETE SET NULL (set child key to NULL).
+* Instead of :
+*
+ ```sql
+CREATE TABLE CUSTOMER (
+customer_id INT PRIMARY KEY,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+email VARCHAR(100),
+city VARCHAR(50),
+zip_code VARCHAR(10)
+);
+
+CREATE TABLE ORDERS (
+order_id INT PRIMARY KEY,
+customer_id INT,
+order_date DATE,
+amount DECIMAL(10,2),
+status VARCHAR(20),
+FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id)
+);
+```
+if you have:
+```sql
+CREATE TABLE CUSTOMER (
+customer_id INT PRIMARY KEY,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+email VARCHAR(100),
+city VARCHAR(50),
+zip_code VARCHAR(10)
+);
+
+CREATE TABLE ORDERS (
+order_id INT PRIMARY KEY,
+customer_id INT,
+order_date DATE,
+amount DECIMAL(10,2),
+status VARCHAR(20),
+FOREIGN KEY (customer_id) REFERENCES CUSTOMER(customer_id) ON DELETE CASCADE
+);
+```
+Then when you delete a row from Customer in a transaction, also hanging/asscociated row from the Orders table will be deleted without issues
