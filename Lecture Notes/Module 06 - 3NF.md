@@ -4,8 +4,9 @@
 
 ## What is Normalization?
 
-Normalization is the process of organizing data in a database to minimize redundancy and improve data integrity.  
-It involves progressively dividing tables into smaller ones and defining relationships to avoid duplicate, inconsistent, and anomalous data.
+### Normalization
+* The process of organizing data in a database to minimize redundancy and improve data integrity.
+* Progressively dividing tables into smaller ones and defining relationships to avoid duplicate, inconsistent, and anomalous data.
 
 **Goals:**
 - Eliminate data redundancy
@@ -94,7 +95,113 @@ Move ChargeHour to a new table linked by JobClass.
 - Normalize up to 3NF for most business cases
 
 ---
+# Simple Examples: 1NF, 1NF not 2NF, 2NF not 3NF
 
+---
+
+## 1. In 1NF (atomic, but redundant)
+
+| ProjectID | ProjectName | EmpNum | EmpName     | JobClass | ChargeHour | AssignHours |
+|-----------|-------------|--------|-------------|----------|------------|-------------|
+| 101       | Evergreen   | 15     | Arbough     | ENG      | 50         | 12          |
+| 101       | Evergreen   | 21     | News        | ENG      | 50         | 20          |
+| 102       | Amber Wave  | 22     | Johnson     | MGR      | 60         | 15          |
+| 101       | Evergreen   | 23     | Smithfield  | MGR      | 60         | 13          |
+
+*Every cell holds only one value. There are no repeating groups or arrays.*
+*But: ProjectName, JobClass, ChargeHour repeat in the table.*
+
+---
+
+## 2. In 1NF but not 2NF (partial dependency)
+
+| ProjectID | ProjectName | EmpNum | AssignHours |
+|-----------|-------------|--------|-------------|
+| 101       | Evergreen   | 15     | 12          |
+| 101       | Evergreen   | 21     | 20          |
+| 102       | Amber Wave  | 22     | 15          |
+| 101       | Evergreen   | 23     | 13          |
+
+*All values are atomic. But ProjectName only depends on part of the key (ProjectID),*
+*not on the whole composite key (ProjectID, EmpNum). That’s a partial dependency.*
+
+---
+
+## 3. In 2NF but not 3NF (transitive dependency)
+
+| EmpNum | EmpName     | JobClass | ChargeHour |
+|--------|-------------|----------|------------|
+| 15     | Arbough     | ENG      | 50         |
+| 21     | News        | ENG      | 50         |
+| 22     | Johnson     | MGR      | 60         |
+| 23     | Smithfield  | MGR      | 60         |
+
+*No partial dependencies; every non-key column depends on EmpNum.*
+*But ChargeHour is determined by JobClass, not strictly by EmpNum.*
+*So, ChargeHour is transitively dependent on EmpNum via JobClass.*
+
+---
+# 3NF Example (Project & Employee)
+
+When fully normalized to Third Normal Form (3NF), each table has only columns that depend *directly* on its primary key—no partial or transitive dependencies remain.
+
+---
+
+## PROJECT Table
+
+| ProjectID | ProjectName   |
+|-----------|--------------|
+| 101       | Evergreen    |
+| 102       | Amber Wave   |
+
+---
+
+## EMPLOYEE Table
+
+| EmpNum | EmpName    | JobClass |
+|--------|------------|----------|
+| 15     | Arbough    | ENG      |
+| 21     | News       | ENG      |
+| 22     | Johnson    | MGR      |
+
+---
+
+## JOB Table
+
+| JobClass | ChargeHour |
+|----------|------------|
+| ENG      | 50         |
+| MGR      | 60         |
+
+---
+
+## ASSIGNMENT Table
+
+| ProjectID | EmpNum | AssignHours |
+|-----------|--------|-------------|
+| 101       | 15     | 12          |
+| 101       | 21     | 20          |
+| 102       | 22     | 15          |
+| 101       | 23     | 13          |
+
+---
+
+**Key Points:**
+- Each table’s non-key attributes depend on the *whole key* (or are the key).
+- ProjectName is separated from assignments, so no partial dependency.
+- ChargeHour is separated into JOB, so no transitive dependency.
+- Data redundancy and update anomalies are minimized.
+
+This structure is a classic, clean example of 3NF for a project-assignment scenario.
+
+---
+
+**Key points:**
+- 1NF: Atomic values and unique rows
+- 1NF but not 2NF: At least one partial dependency
+- 2NF but not 3NF: At least one transitive dependency
+
+---
 ## Summary Table
 
 | Normal Form | Requirement                 | Removes                    |
