@@ -216,3 +216,98 @@ This structure is a classic, clean example of 3NF for a project-assignment scena
 Normalization produces several smaller tables connected by keys. It helps maintain integrity and consistency, but more joins may reduce query performance – balance is key for large systems.
 
 ---
+“For most business applications, it is only necessary to normalize databases up to the Third Normal Form (3NF).”
+
+Why?
+* 3NF removes the most common problems: By the time a table is in 3NF, you have eliminated almost all redundancy, partial dependencies, and transitive dependencies. This prevents data anomalies (like update, insert, and delete errors) and makes the data structure clear and consistent.
+
+* Going beyond 3NF is rarely necessary: Higher forms like BCNF, 4NF, and 5NF solve very specialized issues that typically do not arise in ordinary business systems. Using higher forms can complicate the design with no real benefit for most business needs.
+
+* Good balance: 3NF gives a balance of data integrity and practicality. Going further can make the database more complex and slower without a real business reason.
+
+* 3NF does not eliminate `multi-valued dependency`.
+
+# Is the "Table Not in 4NF" in 3NF?
+
+## Example Table (In 3NF, but not in 4NF)
+
+| StudentID | Hobby      | Course   |
+|-----------|------------|----------|
+| S1        | Painting   | Math     |
+| S1        | Painting   | Physics  |
+| S1        | Hiking     | Math     |
+| S1        | Hiking     | Physics  |
+| S2        | Reading    | Chemistry|
+| S2        | Reading    | Biology  |
+
+---
+
+## Normal Form Analysis
+
+- **1NF**: All entries are atomic (no lists or arrays).
+- **2NF**: No partial dependencies; every attribute is part of the composite key (StudentID, Hobby, Course).
+- **3NF**: No transitive dependencies; no attribute is functionally dependent on a non-key attribute.
+
+**Conclusion:**  
+This table is *in 3NF*—none of the values violate 1NF, 2NF, or 3NF. However, it is **not in 4NF** because it contains a multivalued dependency (each student is independently associated with multiple hobbies and multiple courses). This redundancy only gets resolved by 4NF decomposition.
+
+---
+
+# 4NF Decomposition Example (for Student-Hobby-Course)
+
+## Student-Hobby Table
+
+| StudentID | Hobby     |
+|-----------|-----------|
+| S1        | Painting  |
+| S1        | Hiking    |
+| S2        | Reading   |
+
+## Student-Course Table
+
+| StudentID | Course    |
+|-----------|-----------|
+| S1        | Math      |
+| S1        | Physics   |
+| S2        | Chemistry |
+| S2        | Biology   |
+
+**Result:**  
+Multivalued dependencies are removed. Now, each independent relationship is modeled in a separate table, eliminating combinatorial redundancy.
+
+4NF decomposition - SQL CREATE and INSERT statements
+
+```sql
+-- Create Student-Hobby table
+CREATE TABLE StudentHobby (
+    StudentID VARCHAR(10),
+    Hobby VARCHAR(50),
+    PRIMARY KEY (StudentID, Hobby)
+);
+
+-- Create Student-Course table
+CREATE TABLE StudentCourse (
+    StudentID VARCHAR(10),
+    Course VARCHAR(50),
+    PRIMARY KEY (StudentID, Course)
+);
+
+-- Insert data into StudentHobby
+INSERT INTO StudentHobby (StudentID, Hobby) VALUES
+('S1', 'Painting'),
+('S1', 'Hiking'),
+('S2', 'Reading');
+
+-- Insert data into StudentCourse
+INSERT INTO StudentCourse (StudentID, Course) VALUES
+('S1', 'Math'),
+('S1', 'Physics'),
+('S2', 'Chemistry'),
+('S2', 'Biology');
+
+```
+
+In summary:
+For almost all business systems, achieving 3NF is “enough” and recommended for effective, practical, and maintainable database design. 
+
+
