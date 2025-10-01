@@ -26,7 +26,7 @@
 ## Steps and Forms in Normalization
 
 ### First Normal Form (1NF)
-- All columns have atomic values (no lists or repeating groups)
+- All columns have `atomic values` (no lists or repeating groups)
 - Each row is unique (has a primary key)
 
 **Example Not in 1NF**
@@ -47,7 +47,7 @@
 
 ### Second Normal Form (2NF)
 - Must be in 1NF
-- No partial dependency (no non-key attribute depends on part of a composite primary key)
+- `No partial dependency` (no non-key attribute depends on part of a `composite primary key`)
 - Only applies to tables with **composite keys**
 
 **Partial Dependency Example:**  
@@ -63,7 +63,7 @@ If a table has (ProjectID, EmpNum) as the key, but ProjectName depends only on P
 
 ### Third Normal Form (3NF)
 - Must be in 2NF
-- No transitive dependency (non-key attribute depends on another non-key attribute)
+- `No transitive dependency` (`non-key attribute depends on another non-key attribute`)
 
 **Transitive Dependency Example:**  
 If JobClass → ChargeHour, and JobClass is not a key,
@@ -149,7 +149,7 @@ When fully normalized to Third Normal Form (3NF), each table has only columns th
 
 ## PROJECT Table
 
-| ProjectID | ProjectName   |
+| ProjectID | ProjectName  |
 |-----------|--------------|
 | 101       | Evergreen    |
 | 102       | Amber Wave   |
@@ -204,16 +204,20 @@ This structure is a classic, clean example of 3NF for a project-assignment scena
 ---
 ## Summary Table
 
-| Normal Form | Requirement                 | Removes                    |
-|-------------|-----------------------------|----------------------------|
-| 1NF         | Atomic values, unique rows  | Repeating groups, lists    |
-| 2NF         | No partial dependency       | Partial dependency         |
-| 3NF         | No transitive dependency    | Transitive dependency      |
+| Normal Form | Requirement                 | Removes                    | Features                                    |
+|-------------|-----------------------------|----------------------------|----------------------------------------     |
+| 1NF         | Atomic values, unique rows  | Repeating groups, lists    |cell does not contain list                   |
+| 2NF         | No partial dependency       | Partial dependency         |applies only for tables with composite key   |
+| 3NF         | No transitive dependency    | Transitive dependency      |non-key attr depends on another non-key attr |
+| 4NF         | No multivalued dependency   | Multivalued dependency     |`non-key attribute values repeated`          |
 
 ---
-
+* Multivalued dependency - combinatorial redundancy: `non-key attribute values repeated` combinatorially.
+  
 **Note:**  
-Normalization produces several smaller tables connected by keys. It helps maintain integrity and consistency, but more joins may reduce query performance – balance is key for large systems.
+Normalization produces several smaller tables connected by keys. 
+* (+) Normalization helps maintain integrity and consistency,
+* (-) but more joins may reduce query performance – balance is key for large systems.
 
 ---
 “For most business applications, it is only necessary to normalize databases up to the Third Normal Form (3NF).”
@@ -249,7 +253,7 @@ Why?
 - **3NF**: No transitive dependencies; no attribute is functionally dependent on a non-key attribute.
 
 **Conclusion:**  
-This table is *in 3NF*—none of the values violate 1NF, 2NF, or 3NF. However, it is **not in 4NF** because it contains a multivalued dependency (each student is independently associated with multiple hobbies and multiple courses). This redundancy only gets resolved by 4NF decomposition.
+This table is *in 3NF*—none of the values violate 1NF, 2NF, or 3NF. However, it is **not in 4NF** because it contains a `multivalued dependency - combinatorial redundancy` (each student is independently associated with multiple hobbies and multiple courses). This redundancy only gets resolved by 4NF decomposition.
 
 ---
 
