@@ -1,5 +1,5 @@
 
-# Lecture 09 – Database Views (Virtual Tables)
+# Lecture 08 – Database Views (Virtual Tables)
 
 ---
 
