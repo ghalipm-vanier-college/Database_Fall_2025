@@ -1,6 +1,5 @@
 
-```markdown
-# 🧩 Lecture 05 – Define the Database in a DBMS
+#  Lecture 05 – Define the Database in a DBMS
 
 **Goal:** Understand how databases are designed, created, and managed within a DBMS.
 
@@ -37,7 +36,7 @@ Requirements → Conceptual Design → Logical Design → Physical Design
 
 ---
 
-## 🏗️ 2. Creating a Database
+## 2. Creating a Database
 
 **Syntax:**
 ```sql
@@ -52,7 +51,7 @@ CREATE DATABASE database_name;
 
 ---
 
-## ⚙️ 3. Data Definition Language (DDL)
+## 3. Data Definition Language (DDL)
 
 DDL commands are used to define the structure of the database.
 
@@ -70,7 +69,7 @@ These statements can define:
 
 ---
 
-## 🧱 4. Creating a Table
+## 4. Creating a Table
 
 **Syntax:**
 
@@ -90,7 +89,7 @@ CREATE TABLE TableName (
 
 ---
 
-## 🔢 5. SQL Data Types
+## 5. SQL Data Types
 
 | Type                      | Description                     | Example                    |
 | ------------------------- | ------------------------------- | -------------------------- |
@@ -109,7 +108,7 @@ Use the smallest suitable data type to save space and improve performance.
 
 ---
 
-## ⚖️ 6. Database Constraints
+##  6. Database Constraints
 
 Constraints enforce rules on data integrity and relationships.
 
@@ -131,7 +130,7 @@ Example: STUDENT_ID_PK
 
 ---
 
-## 🔐 7. Entity & Referential Integrity
+## 7. Entity & Referential Integrity
 
 ### Entity Integrity
 
@@ -161,7 +160,7 @@ ON UPDATE CASCADE
 
 ---
 
-## 🧩 8. ALTER TABLE
+## 8. ALTER TABLE
 
 Used to modify an existing table structure.
 
@@ -263,6 +262,3 @@ CREATE TABLE Employees (
 
 ```
 
----
-
-```
