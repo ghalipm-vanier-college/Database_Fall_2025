@@ -204,12 +204,12 @@ This structure is a classic, clean example of 3NF for a project-assignment scena
 ---
 ## Summary Table
 
-| Normal Form | Requirement                 | Removes                    | Features                                    |
-|-------------|-----------------------------|----------------------------|----------------------------------------     |
-| 1NF         | Atomic values, unique rows  | Repeating groups, lists    |cell does not contain list                   |
-| 2NF         | No partial dependency       | Partial dependency         |applies only for tables with composite key   |
-| 3NF         | No transitive dependency    | Transitive dependency      |non-key attr depends on another non-key attr |
-| 4NF         | No multivalued dependency   | Multivalued dependency     |`non-key attribute values repeated`          |
+| Normal Form | Requirement                 | Removes                   | Features                                    |
+|-------------|-----------------------------|---------------------------|----------------------------------------     |
+| 1NF         | Atomic values, unique rows  | Repeating groups, lists   |cell does not contain list                   |
+| 2NF         | No partial dependency       | Partial dependency        |applies only for <mark> tables with composite key </mark>  |
+| 3NF         | No transitive dependency    | Transitive dependency     |<mark> non-key attr depends on another non-key attr</mark> |
+| 4NF         | No multivalued dependency   | Multivalued dependency    |`non-key attribute values repeated`          |
 
 ---
 * Multivalued dependency - combinatorial redundancy: `non-key attribute values repeated` combinatorially.
