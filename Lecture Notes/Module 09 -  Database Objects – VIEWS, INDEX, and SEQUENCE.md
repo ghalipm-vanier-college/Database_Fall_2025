@@ -153,8 +153,19 @@ CREATE INDEX idx_customer_city ON Customers (City);
 CREATE UNIQUE INDEX idx_product_sku ON Products (SKU);
 CREATE INDEX idx_order_date_amount ON Orders (OrderDate, TotalAmount);
 ```
-
+* After creating an index like "CREATE INDEX idx_customer_city ON Customers (City);",
+* you don't "use" it in your SELECT statements in the same way you might reference a table or column.
+* Instead, the SQL Server query optimizer automatically considers and potentially utilizes the index when executing queries that can benefit from it.
+* How the index is used:
+* When you execute a query that filters or sorts by the City column, the SQL Server query optimizer will evaluate whether using idx_customer_city would be more efficient than performing a full table scan.
+* If it determines the index will improve performance, it will automatically incorporate it into the execution plan.
 ---
+
+* To verify if an index 'idx_customer_city' is created, use:
+```sql
+EXEC sp_helpindex 'Customers';
+```
+you should see  'idx_customer_city' under 'index_name' column . 
 
 ### 🔹 ALTER INDEX (Rebuild or Rename)
 
