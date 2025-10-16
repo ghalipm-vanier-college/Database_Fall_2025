@@ -62,7 +62,7 @@ WHERE o.TotalAmount > 500;
 Prevents modifications through the view that violate its condition.
 
 ```sql
-CREATE VIEW v_active_customers AS
+CREATE VIEW v_toronto_customers AS
 SELECT * FROM Customers
 WHERE City = 'Toronto'
 WITH CHECK OPTION;
