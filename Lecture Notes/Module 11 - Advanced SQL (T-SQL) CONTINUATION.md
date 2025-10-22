@@ -84,18 +84,21 @@ ELSE
 
 ### ✅ Example 1 – Count Employees in a Branch
 ```sql
+CREATE PROCEDURE CountByBranch @vBranchNo CHAR(4)
+AS
 BEGIN
-   DECLARE @VCOUNT INT, @VBRANCHNO CHAR(5) = 'B003';
-   SELECT @VCOUNT = COUNT(*) FROM STAFF WHERE BRANCHNO = @VBRANCHNO;
+   DECLARE @VCOUNT INT
+   SELECT @VCOUNT = COUNT(*) FROM STAFF WHERE BRANCHNO =  @vBranchNo;
 
    IF @VCOUNT > 3
-      PRINT 'Branch B003 has 4 or more employees';
+      PRINT 'Branch ' + @vBranchNo + ' has at least 4 employees.';
    ELSE
-   BEGIN
-      PRINT 'Employees in Branch B003:';
-      SELECT * FROM STAFF WHERE BRANCHNO = @VBRANCHNO;
-   END;
+	  PRINT 'Branch ' + @vBranchNo + ' has only '+cast(@VCOUNT as varchar(10)) + ' employees.';
 END;
+GO
+--DROP PROCEDURE CountByBranch;
+GO
+EXEC CountByBranch @vBranchNo ='B002';
 ```
 
 ### ✅ Example 2 – Update Salaries Conditionally
