@@ -161,6 +161,20 @@ BEGIN
 END;
 ```
 
+## Key Differences Summarized: 
+### 🧩 <mark> `CASE Expression` vs `IF...ELSE Statement`</mark>
+
+| Feature | CASE Expression | IF...ELSE Statement |
+| :--- | :--- | :--- |
+| **Primary Use** | Returning values within queries | Controlling procedural code flow |
+| **Context** | `SELECT, WHERE, ORDER BY, GROUP BY` clauses | Stored procedures, functions, triggers |
+| **Output** | Returns a single value | Executes blocks of code |
+| **Flexibility** | Evaluates multiple conditions for value selection | Evaluates a condition to determine code execution path |
+
+---
+
+* Use **CASE** when you need to **conditionally return different data values** within a query,
+* Use **IF...ELSE** when you need to **conditionally execute different sets of `SQL` statements** in a procedural block.
 ---
 
 ## 6️⃣ WHILE Loop
