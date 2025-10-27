@@ -276,7 +276,7 @@ CREATE FUNCTION dbo.UDF_InvoiceTotal (@subtotal NUMERIC(8,2), @tax NUMERIC(8,2))
 RETURNS NUMERIC(8,2)
 AS
 BEGIN
-   RETURN (ISNULL(@subtotal,0) + ISNULL(@tax,0));
+   RETURN (ISNULL(@subtotal,0) *(1+ ISNULL(@tax,0)));
 END;
 ```
 
