@@ -77,8 +77,7 @@ EXEC PRC_Prod_Discount;
 Make the **discount rate** adjustable by passing it as a parameter.
 
 ```sql
-CREATE PROCEDURE PRC_Prod_Discount
-   @PDR DECIMAL(4,2)  -- Discount reduction rate (e.g., 0.05 = 5%)
+CREATE PROCEDURE Price_After_Discount @PDR DECIMAL(4,2)  -- Product Discount Rate (e.g., 0.05 = 5%)
 AS
 BEGIN
    IF (@PDR <= 0 OR @PDR >= 1)
@@ -86,16 +85,21 @@ BEGIN
    ELSE
    BEGIN
       UPDATE Product
-      SET P_DISCOUNT = P_DISCOUNT * (1 - @PDR)
+      SET P_Price = P_Price * (1 - @PDR)
       WHERE P_QOH >= (P_MIN * 2);
 
-      PRINT '✅ Product discounts updated successfully.';
-   END
-END;
+      PRINT '✅ Product prices updated successfully.';
+   END;
+END
 GO
 
+SELECT * FROM Product;
 -- Execute with 5% discount reduction
-EXEC PRC_Prod_Discount 0.05;
+EXEC Price_After_Discount 0.07;
+SELECT * FROM Product;
+GO
+DROP PROCEDURE Price_After_Discount;
+GO
 ```
 
 ---
@@ -103,7 +107,7 @@ EXEC PRC_Prod_Discount 0.05;
 ## 5️⃣ Example 3: Deleting a Customer by ID (Basic Version)
 
 ```sql
-CREATE PROCEDURE PROC_Remove_Customer
+CREATE PROCEDURE PROC_Remove_Customer_By_Id
    @CustID INT
 AS
 BEGIN
@@ -111,16 +115,18 @@ BEGIN
    SELECT @CustomerCount = COUNT(*) FROM Customer WHERE CUS_CODE = @CustID;
 
    IF @CustomerCount = 0
-      PRINT '⚠️ No customer found with this ID.';
+      PRINT 'No customer found with this ID:' +cast(@CustID as varchar(5))+'';
    ELSE
    BEGIN
       DELETE FROM Customer WHERE CUS_CODE = @CustID;
-      PRINT '✅ Customer deleted successfully.';
+      PRINT 'Customer with the ID '+cast(@CustID as varchar(5))+ ' deleted successfully.';
    END
 END;
 GO
 
-EXEC PROC_Remove_Customer 10019;
+EXEC PROC_Remove_Customer_By_Id 1003;
+
+SELECT * FROM CUSTOMER;
 ```
 
 ---
@@ -136,11 +142,11 @@ BEGIN
    SELECT @InvoiceCount = COUNT(*) FROM Invoice WHERE CUS_CODE = @CustID;
 
    IF @InvoiceCount > 0
-      PRINT '⚠️ Cannot delete: This customer has existing invoices.';
+      PRINT ' Cannot delete: This customer has existing invoices.';
    ELSE
    BEGIN
       DELETE FROM Customer WHERE CUS_CODE = @CustID;
-      PRINT '✅ Customer deleted successfully.';
+      PRINT ' Customer deleted successfully.';
    END
 END;
 GO
@@ -159,10 +165,10 @@ AS
 BEGIN
    BEGIN TRY
       DELETE FROM Customer WHERE CUS_CODE = @CustID;
-      PRINT '✅ Customer deleted successfully.';
+      PRINT ' Customer deleted successfully.';
    END TRY
    BEGIN CATCH
-      PRINT '⚠️ Error: Customer cannot be deleted (may have related invoices).';
+      PRINT ' Error: Customer cannot be deleted (may have related invoices).';
    END CATCH
 END;
 GO
@@ -200,15 +206,15 @@ CREATE PROCEDURE PRC_Add_Invoice
 AS
 BEGIN
    IF EXISTS (SELECT * FROM Invoice WHERE INV_NUMBER = @InvNum)
-      PRINT '⚠️ Invoice number already exists.';
+      PRINT ' Invoice number already exists.';
    ELSE IF EXISTS (SELECT * FROM Customer WHERE CUS_CODE = @CusNum)
    BEGIN
       INSERT INTO Invoice (INV_NUMBER, CUS_CODE, INV_DATE)
       VALUES (@InvNum, @CusNum, GETDATE());
-      PRINT '✅ Invoice added successfully.';
+      PRINT ' Invoice added successfully.';
    END
    ELSE
-      PRINT '⚠️ Invalid customer number.';
+      PRINT ' Invalid customer number.';
 END;
 GO
 
@@ -227,10 +233,10 @@ AS
 BEGIN TRY
    INSERT INTO Invoice (INV_NUMBER, CUS_CODE, INV_DATE)
    VALUES (@InvNum, @CusNum, GETDATE());
-   PRINT '✅ Invoice inserted successfully.';
+   PRINT 'Invoice inserted successfully.';
 END TRY
 BEGIN CATCH
-   PRINT '⚠️ Error: Invoice could not be added.';
+   PRINT ' Error: Invoice could not be added.';
 END CATCH;
 GO
 
@@ -254,10 +260,10 @@ BEGIN TRY
    INSERT INTO Customer (CUS_CODE, CUS_LNAME, CUS_FNAME, CUS_INITIAL, CUS_AREACODE, CUS_PHONE)
    VALUES (@CusCode, @LName, @FName, @Init, @AreaCode, @Phone);
 
-   PRINT '✅ Customer inserted successfully.';
+   PRINT ' Customer inserted successfully.';
 END TRY
 BEGIN CATCH
-   PRINT '⚠️ Error inserting customer. Please check if the ID already exists.';
+   PRINT ' Error inserting customer. Please check if the ID already exists.';
 END CATCH;
 GO
 ```
@@ -274,15 +280,15 @@ BEGIN
    IF EXISTS (SELECT * FROM Invoice WHERE INV_NUMBER = @InvoiceNumber)
    BEGIN
       IF EXISTS (SELECT * FROM Line WHERE INV_NUMBER = @InvoiceNumber)
-         PRINT '⚠️ Cannot delete invoice: referenced in Line table.';
+         PRINT ' Cannot delete invoice: referenced in Line table.';
       ELSE
       BEGIN
          DELETE FROM Invoice WHERE INV_NUMBER = @InvoiceNumber;
-         PRINT '✅ Invoice deleted successfully.';
+         PRINT ' Invoice deleted successfully.';
       END
    END
    ELSE
-      PRINT '⚠️ No invoice found with that number.';
+      PRINT ' No invoice found with that number.';
 END;
 GO
 
