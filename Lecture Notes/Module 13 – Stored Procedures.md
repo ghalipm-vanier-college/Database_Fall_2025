@@ -59,7 +59,7 @@ CREATE PROCEDURE PRC_Prod_Discount
 AS
 BEGIN
    UPDATE Product
-   SET P_DISCOUNT = P_DISCOUNT * 0.95   -- Reduce discount by 5%
+   SET P_DISCOUNT = P_DISCOUNT -0.05   -- Reduce discount by 5%
    WHERE P_QOH >= (P_MIN * 2);
 
    PRINT '✅ Product discounts reduced by 5% successfully.';
