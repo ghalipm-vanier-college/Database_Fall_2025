@@ -75,7 +75,20 @@ END;
 CLOSE vendor_cursor;
 DEALLOCATE vendor_cursor;
 ```
+### Set-Based Equivalent (No Cursor Needed)
 
+* Option 1 – Using a CASE Expression (Preferred)
+  
+This returns the same logical output in a single query:
+```sql
+SELECT 
+    CUS_FNAME + ' ' + CUS_LNAME AS CustomerName,
+    CASE 
+        WHEN CUS_BALANCE < 200 THEN 'Bonus Eligible'
+        ELSE 'Review Account'
+    END AS Status
+FROM Customer;
+```
 ---
 
 ## 5️⃣ Understanding `@@FETCH_STATUS`
