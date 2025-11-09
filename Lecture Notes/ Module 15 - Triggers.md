@@ -234,9 +234,10 @@ SELECT P_CODE, P_QOH, P_MIN, P_REORDER FROM Product;
 
 ---
 
-##  Practice Exercises
+##  Remarks:
 
 🔹 Use AFTER for `post-action` auditing and cascading updates of `tables`only.
+
 🔹 Use INSTEAD OF when you need to intercept, validate, or customize a change `before` it happens (especially for views).
 
 ---
