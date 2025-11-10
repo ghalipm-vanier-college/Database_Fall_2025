@@ -1,7 +1,3 @@
-
----
-
-````markdown
 # Lecture 16 – Data Control Language (DCL)
 
 ---
@@ -226,6 +222,4 @@ SELECT * FROM sys.database_principals WHERE type = 'S';
 
 ✅ **End of Lecture 16 – Data Control Language (DCL)**
 
-```
 
----
